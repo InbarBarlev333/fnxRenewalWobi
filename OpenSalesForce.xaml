@@ -1,0 +1,546 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="OpenSalesForce" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_sf_system_work" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_sf_browser" Type="OutArgument(ui:Browser)" />
+    <x:Property Name="inout_username_test" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_crm_ft" Type="InOutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1799.2,3468</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.Activities.Extensions.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities.Extensions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="1809.6,3363.2" sap2010:WorkflowViewState.IdRef="Sequence_1449">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="sfAllOpen" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="1768,60" sap2010:WorkflowViewState.IdRef="Assign_453">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[out_sf_system_work]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:UiElementExists DisplayName="Element Exists 'IMG  phHeaderLogoImage'" Exists="[sfAllOpen]" sap:VirtualizedContainerService.HintSize="1768,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_158">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a18a5363-4cb7-4ccd-b52e-e600d27dc49d" InformativeScreenshot="bc9991e91557c5426f3534389a0ad666" Selector="&lt;html app='chrome.exe' title='* Salesforce - Enterprise Edition' /&gt;&lt;webctrl id='phHeaderLogoImage' tag='IMG' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[sfAllOpen]" DisplayName="If פתיחת sf" sap:VirtualizedContainerService.HintSize="1768,3023.2" sap2010:WorkflowViewState.IdRef="If_744">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe פוטנציאל:'" sap:VirtualizedContainerService.HintSize="475.2,677.6" sap2010:WorkflowViewState.IdRef="BrowserScope_207" InformativeScreenshot="769f24d84c4e673fa553de93ac2d6569" Selector="&lt;html app='chrome.exe' title='*~ Salesforce - Enterprise Edition' /&gt;">
+          <ui:BrowserScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence sap:VirtualizedContainerService.HintSize="441.6,530.4" sap2010:WorkflowViewState.IdRef="Sequence_1441">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,437.6" sap2010:WorkflowViewState.IdRef="Sequence_1440">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="variable1" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click פוטנציאלים" sap:VirtualizedContainerService.HintSize="358.4,107.2" sap2010:WorkflowViewState.IdRef="Click_1145" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="76e34709-e813-462f-a807-bf08360e53a2" InformativeScreenshot="bbd0bb2ed0739ae30fcc57faa007dbe3" Selector="&lt;webctrl id='01r1t000000usd4_Tab' tag='LI' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                  <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="358.4,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_5" />
+                  <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item החידושים שלי הפניקס" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_564" Item="החידושים שלי הפניקס - רובוט">
+                    <ui:SelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="16">
+                        <x:String>בעבודה שלי</x:String>
+                        <x:String>בעיה בהפקה</x:String>
+                        <x:String>בעיה בהפקה - חידושים</x:String>
+                        <x:String>בעיה בהפקה שלי</x:String>
+                        <x:String>החידושים שלי הפניקס - רובוט</x:String>
+                        <x:String>חדשים שלי</x:String>
+                        <x:String>חידושים שלי שלמה- רובוט</x:String>
+                        <x:String>כל החידושים שלי רובוט</x:String>
+                        <x:String>להפקה</x:String>
+                        <x:String>להפקה -חידושים</x:String>
+                        <x:String>להפקה- שלא הוקצה</x:String>
+                        <x:String>להפקה- שלא הוקצה- חידושים</x:String>
+                        <x:String>להפקה שלי</x:String>
+                        <x:String>רכישה</x:String>
+                      </scg:List>
+                    </ui:SelectItem.Items>
+                    <ui:SelectItem.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a43fd02d-690d-4975-81f9-13069e873147" InformativeScreenshot="8a958dbe93a0f7241e16b0eab8b1de1b" Selector="&lt;webctrl id='fcf' tag='SELECT' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SelectItem.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:SelectItem>
+                </Sequence>
+              </Sequence>
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:BrowserScope>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="1248.8,2873.6" sap2010:WorkflowViewState.IdRef="Sequence_1448">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="פתיחת מערכת crm" sap:VirtualizedContainerService.HintSize="1207.2,2718.4" sap2010:WorkflowViewState.IdRef="Sequence_1447">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:GenericValue" Name="us_first" />
+              <Variable x:TypeArguments="x:Boolean" Name="choose_un" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser פתיחת sf" sap:VirtualizedContainerService.HintSize="1165.6,52.8" sap2010:WorkflowViewState.IdRef="OpenBrowser_13" UiBrowser="[out_sf_browser]" Url="https://login.salesforce.com/">
+              <ui:OpenBrowser.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_1442">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_6" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:OpenBrowser.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:OpenBrowser>
+            <ui:UiElementExists DisplayName="Element Exists 'H2  header'" Exists="[choose_un]" sap:VirtualizedContainerService.HintSize="1165.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_157">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="70022edf-190d-472e-bc2a-f61335907957" InformativeScreenshot="1ed2f665aa9912ece4ed8fc2ffa6051d" Selector="&lt;html app='chrome.exe' title='Choose a Username | Salesforce' /&gt;&lt;webctrl tag='H2' /&gt;" TimeoutMS="10000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[choose_un=True]" sap:VirtualizedContainerService.HintSize="1165.6,1963.2" sap2010:WorkflowViewState.IdRef="If_743">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_1443">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1146" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0ae86ac8-5a31-44b6-a9b8-fc4c50c97551" InformativeScreenshot="53ef862faad04544b8757559ebf5a9cd" Selector="&lt;html app='chrome.exe' title='Choose a Username | Salesforce' /&gt;&lt;webctrl parentid='hint_00D1t000000tOmy0052o000008JOcf' tag='SPAN' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="746.4,1813.6" sap2010:WorkflowViewState.IdRef="Sequence_1446">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text שליפת שם משתמש" sap:VirtualizedContainerService.HintSize="704.8,107.2" sap2010:WorkflowViewState.IdRef="GetValue_816">
+                    <ui:GetValue.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b46097b-1ae0-4972-b880-936b5ea1ce54" InformativeScreenshot="dc99650e7ea899e7a5c7fdfff6284139" Selector="&lt;html app='chrome.exe' title='Login | Salesforce' /&gt;&lt;webctrl id='idcard-identity' tag='SPAN' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetValue.Target>
+                    <ui:GetValue.Value>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[us_first]</OutArgument>
+                    </ui:GetValue.Value>
+                  </ui:GetValue>
+                  <If Condition="[us_first.tostring.Equals(&quot;hadard@wobi.co.il&quot;)]" sap:VirtualizedContainerService.HintSize="704.8,1170.4" sap2010:WorkflowViewState.IdRef="If_742">
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="560.8,1020.8" sap2010:WorkflowViewState.IdRef="Sequence_1445">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  username'" sap:VirtualizedContainerService.HintSize="519.2,107.2" sap2010:WorkflowViewState.IdRef="Click_1147" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9a5ee2c0-db42-42e8-8f32-b146a87266b6" InformativeScreenshot="ad23f10e26eb6f017289c1f6532365fe" Selector="&lt;html app='chrome.exe' title='Login | Salesforce' /&gt;&lt;webctrl tag='INPUT' type='email' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" EmptyField="True" sap:VirtualizedContainerService.HintSize="519.2,96.8" sap2010:WorkflowViewState.IdRef="TypeInto_565" Text="hadard@wobi.co.il">
+                          <ui:TypeInto.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="48e16c81-1e1a-44ac-8eb4-79e0aae793a0">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:TypeInto.Target>
+                        </ui:TypeInto>
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'INPUT  username'" sap:VirtualizedContainerService.HintSize="519.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_817">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b46097b-1ae0-4972-b880-936b5ea1ce54" InformativeScreenshot="a5d75db5d85099b481df7f214a1cbdcb" Selector="&lt;html app='chrome.exe' title='Login | Salesforce' /&gt;&lt;webctrl tag='INPUT' type='email' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="x:String">[inout_username_test]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                        <If Condition="[inout_username_test.ToString.Equals(&quot;hadard@wobiץcoץil&quot;)]" sap:VirtualizedContainerService.HintSize="519.2,496.8" sap2010:WorkflowViewState.IdRef="If_741">
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="375.2,347.2" sap2010:WorkflowViewState.IdRef="Sequence_1444">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" Key="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey החלפה לאנגלית" sap:VirtualizedContainerService.HintSize="333.6,117.6" sap2010:WorkflowViewState.IdRef="SendHotkey_431" KeyModifiers="Alt, Shift">
+                                <ui:SendHotkey.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="28596c6c-b4cb-4f2f-9dad-89c688274f65">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:SendHotkey.Target>
+                              </ui:SendHotkey>
+                              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,96.8" sap2010:WorkflowViewState.IdRef="TypeInto_566" Text="hadard@wobi.co.il">
+                                <ui:TypeInto.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="48e16c81-1e1a-44ac-8eb4-79e0aae793a0">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:TypeInto.Target>
+                              </ui:TypeInto>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="704.8,52.8" sap2010:WorkflowViewState.IdRef="Click_1148" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a88d7ced-2500-445e-9a62-a84410b31802" InformativeScreenshot="74d60d71282ed2f4aefbd9f8b751de66" Selector="&lt;html app='chrome.exe' title='Login | Salesforce' /&gt;&lt;webctrl tag='INPUT' type='password' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into" EmptyField="True" sap:VirtualizedContainerService.HintSize="704.8,52.8" sap2010:WorkflowViewState.IdRef="TypeInto_567" Text="abc12345">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="48e16c81-1e1a-44ac-8eb4-79e0aae793a0">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="704.8,22.4" sap2010:WorkflowViewState.IdRef="Delay_300" />
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="704.8,52.8" sap2010:WorkflowViewState.IdRef="SendHotkey_432" Key="enter" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="18bdbea2-0243-4a34-ac0c-4f30aba0d28f">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="704.8,22.4" sap2010:WorkflowViewState.IdRef="Delay_301" />
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click לחיצה על פוטנציאלים" sap:VirtualizedContainerService.HintSize="1165.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1149" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="964228ad-92d8-4877-84fc-17d05d004aa8" InformativeScreenshot="ece160ff8709c499d572e0f4b6d544f5" Selector="&lt;html app='chrome.exe' title='Salesforce - Enterprise Edition' /&gt;&lt;webctrl parentid='01r1t000000usd4_Tab' tag='A' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Assign sap:VirtualizedContainerService.HintSize="358.4,60" sap2010:WorkflowViewState.IdRef="Assign_454">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[in_crm_ft]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item החידושים שלי הפניקס" sap:VirtualizedContainerService.HintSize="358.4,135.2" sap2010:WorkflowViewState.IdRef="SelectItem_565" Item="החידושים שלי הפניקס - רובוט">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="16">
+                  <x:String>בעבודה שלי</x:String>
+                  <x:String>בעיה בהפקה</x:String>
+                  <x:String>בעיה בהפקה - חידושים</x:String>
+                  <x:String>בעיה בהפקה שלי</x:String>
+                  <x:String>החידושים שלי הפניקס - רובוט</x:String>
+                  <x:String>חדשים שלי</x:String>
+                  <x:String>חידושים שלי שלמה- רובוט</x:String>
+                  <x:String>כל החידושים שלי רובוט</x:String>
+                  <x:String>להפקה</x:String>
+                  <x:String>להפקה -חידושים</x:String>
+                  <x:String>להפקה- שלא הוקצה</x:String>
+                  <x:String>להפקה- שלא הוקצה- חידושים</x:String>
+                  <x:String>להפקה שלי</x:String>
+                  <x:String>רכישה</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d6a95eac-ec87-4aa5-ac58-9387332a9b80" InformativeScreenshot="8a958dbe93a0f7241e16b0eab8b1de1b" Selector="&lt;html app='chrome.exe' title='פוטנציאלים: בית ~ Salesforce - Enterprise Edition' /&gt;&lt;webctrl id='fcf' tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:SelectItem>
+          </Sequence>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="LogMessage_55" Level="Info" Message="[&quot;מערכת sf פתוחה&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

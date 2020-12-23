@@ -1,0 +1,183 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CloseFenixIfOpen" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="fnx_ft" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>974.4,1795.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="סיקוונס גדול" sap:VirtualizedContainerService.HintSize="566.4,1730.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="סיקוונס קטן" sap:VirtualizedContainerService.HintSize="524.8,1637.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="are_you_sure" />
+        <Variable x:TypeArguments="x:Boolean" Name="close_everything" />
+        <Variable x:TypeArguments="x:Boolean" Name="close_all_tabs" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" ContinueOnError="True" DisplayName="נסיון סגירה של מערכת הפניקס" sap:VirtualizedContainerService.HintSize="483.2,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="fe5f2c52cc80d8d6661e20d2da28ec06" Selector="&lt;html title='[172.30.83.16? - Afk12apmp*]' /&gt;" TimeoutMS="2000">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:CloseWindow UseWindow="{x:Null}" ContinueOnError="True" DisplayName="לחיצה על איקס" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="CloseWindow_4" InformativeScreenshot="fe5f2c52cc80d8d6661e20d2da28ec06" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='https://agent.fnx.co.il/ - [172.30.83.16? - Afk12apmp*' /&gt;&lt;ctrl idx='1' name='Close' role='push button' /&gt;" TimeoutMS="1000" WaitForReady="INTERACTIVE" />
+            </Sequence>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
+      </ui:BrowserScope>
+      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="483.2,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+      <ui:UiElementExists DisplayName="בדיקה אם פופ אפ קיים" Exists="[are_you_sure]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a3ddccda-dd60-4e6a-9b92-8556b9ac5f80" InformativeScreenshot="8c9f5d4a51d034c958d06b48e6cf712d" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Windows Internet Explorer' /&gt;&lt;wnd aaname='Windows Internet Explorer' cls='DirectUIHWND' /&gt;&lt;ctrl name='Windows Internet Explorer' role='pane' /&gt;&lt;ctrl name='Are you sure you want to leave this page?' role='text' /&gt;" TimeoutMS="15000">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[are_you_sure=True]" sap:VirtualizedContainerService.HintSize="483.2,256.8" sap2010:WorkflowViewState.IdRef="If_3">
+        <If.Then>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="אישור עזיבת עמוד" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e6d2909d-f497-4fa4-ad54-26cd074efa19" InformativeScreenshot="e8ef09f4251c3ce050a2386bdcc23464" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Windows Internet Explorer' /&gt;&lt;wnd aaname='Windows Internet Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Leave this page' cls='Button' title='&amp;amp;Leave this page' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+        </If.Then>
+      </If>
+      <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[fnx_ft]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:CloseWindow UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close Window סגירת אקספלורר " sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="CloseWindow_5" InformativeScreenshot="223c0f8a7c88ba7be38d3bef384b49cd" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='דפים - פורטל סוכני הפניקס - Internet Explorer' /&gt;&lt;ctrl idx='1' name='Close' role='push button' /&gt;" TimeoutMS="2000" WaitForReady="INTERACTIVE" />
+      <ui:UiElementExists DisplayName="עוד פופ אפ" Exists="[close_everything]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bc6eb44e-ad2b-435b-8d9d-f328182725bc" InformativeScreenshot="73bca53f4831649aa82ab6b71429ab32" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Message from webpage' /&gt;" TimeoutMS="3000">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[close_everything=True]" sap:VirtualizedContainerService.HintSize="483.2,256.8" sap2010:WorkflowViewState.IdRef="If_4">
+        <If.Then>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="אישור סגירה" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="869a7a57-c7d5-42b2-9dea-ec087a753c88" InformativeScreenshot="aaa1a02d71f7f585a55b2edf4fff48b4" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Message from webpage' /&gt;&lt;wnd ctrlid='1' title='OK' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+        </If.Then>
+      </If>
+    </Sequence>
+  </Sequence>
+</Activity>
